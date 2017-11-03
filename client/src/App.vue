@@ -13,11 +13,13 @@
 
 <script>
 import PageHeader from './components/PageHeader'
+import HelloWorld from './components/HelloWorld'
 
 export default {
   name: 'app',
   components: {
-    PageHeader
+    PageHeader,
+    HelloWorld
   }
 }
 </script>
