@@ -7,13 +7,18 @@
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
-          <input type="email" name="email" v-model="email" placeholder="Email" />
-          <br />
-          <input type="password" name="password" v-model="password" placeholder="Password" />
-          <br />
+          <v-text-field
+            name="email"
+            label="Email"
+            v-model="email"
+          ></v-text-field>
+          <v-text-field
+            name="password"
+            label="Password"
+            v-model="password"
+          ></v-text-field>
           <div class="error" v-html="error" />
-          <br />
-          <v-btn class="cyan" @click="register">Register</v-btn>
+          <v-btn dark class="cyan" @click="register">Register</v-btn>
         </div>
       </div>
     </v-flex>
@@ -48,7 +53,7 @@ export default {
 
 <style>
 .error {
-  color: red;
+  color: white;
 }
 
 </style>
