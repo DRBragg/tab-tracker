@@ -36,7 +36,7 @@
                     songId: song.id
                   }
                 })">
-                  View Song
+                  View
               </v-btn>
             </v-flex>
 
