@@ -1,4 +1,5 @@
 <template>
+  <div>
   <v-layout>
     <v-flex xs6>
       <panel title="Song Data">
@@ -13,6 +14,17 @@
             <div class="song-genre">
               {{song.genre}}
             </div>
+            <v-btn
+              dark
+              class="cyan"
+              @click="navigateTo({
+                name: 'song-edit',
+                params: {
+                  songId: $store.state.route.params.songId
+                }
+              })">
+                Edit
+            </v-btn>
           </v-flex>
 
           <v-flex xs6>
@@ -25,7 +37,24 @@
     </v-flex>
 
     <v-flex xs6 class="ml-4">
-      <panel title="Tabs">
+      <panel title="Youtube Video">
+        Youtube Video
+      </panel>
+    </v-flex>
+  </v-layout>
+
+  <v-layout>
+    <v-flex xs6>
+      <panel title="Lyrics">
+        <textarea
+          readonly
+          v-model="song.lyrics">
+        </textarea>
+      </panel>
+    </v-flex>
+
+    <v-flex xs6 class="ml-4">
+      <panel title="Tab">
         <textarea
           readonly
           v-model="song.tab">
@@ -33,6 +62,7 @@
       </panel>
     </v-flex>
   </v-layout>
+</div>
 </template>
 
 <script>
@@ -47,6 +77,11 @@ export default {
   },
   components: {
     Panel
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
   },
   async mounted () {
     const songId = this.$store.state.route.params.songId
